@@ -3,7 +3,7 @@ Biblioteca numérica escrita en Julia para crear funciones distancia con signo e
 
 Uso:
 
-El siguiente código es un ejemplo para crear una SDF de un Tanque o un recipiente al unir dos funciones distancia (Cilíndro + plano)
+El siguiente código es un ejemplo para crear una SDF de un tanque(recipiente) al unir dos funciones distancia (Cilíndro + plano).
 
 ```julia
 

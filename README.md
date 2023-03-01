@@ -3,6 +3,8 @@ Biblioteca numérica escrita en Julia para crear funciones distancia con signo e
 
 Uso:
 
+El siguiente código es un ejemplo para crear una SDF de un Tanque o un recipiente al unir dos funciones distancia (Cilíndro + plano)
+
 ```julia
 
     nx = 100 #
@@ -10,20 +12,17 @@ Uso:
     nz = 100
 
     mesh = HexaMesh([nx, ny, nz],[0.0, 0.0, 0.0],[1.0, 1.0, 1.0]);
-
-    meshBuilder(mesh)
+    meshBuilder(mesh) #creando el dominio computacional
     
     
-    phi1 = DistanceFields.sphere(0.5,0.5,0.5,0.1)
-    phi2 = DistanceFields.sphere(0.1,0.1,0.1,0.08)
+    phi1 = DistanceFields.cilinder_Z(0.5, 0.5, 0.2) #creando un cilíndro de radio 0.2 
+    phi2 = DistanceFields.planeZ(0.1) #creando un plano
 
     sdf1 = SDField(mesh, phi1);
     sdf2 = SDField(mesh, phi2);
 
-    #DistanceFields.add(sdf1,sdf2)
-
     sdf1<<sdf2
 
-    vtkWriter(mesh, (sdf1.field,"Cilinder"), (sdf2.field, "Plane"))
+    vtkWriter(mesh, (sdf1.field,"Tanque"))
 ```
 
